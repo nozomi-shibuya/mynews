@@ -11,7 +11,7 @@
         <h1>Myニュース作成画面</h1>
     </body>
 </html>
-@extends('profile')
+@extends('layouts.admin')
 @section('title', 'ニュースの新規作成')
 
 @section('content')
