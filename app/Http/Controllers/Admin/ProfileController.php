@@ -16,6 +16,10 @@ class ProfileController extends Controller
     public function create()
     {
         return redirect('admin/profile/create');
+        $this->validate($request, Profile::$rules);
+        
+        $news = new Profile;
+        $form = $request->all();
     }
 
     public function edit()
