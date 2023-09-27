@@ -24,13 +24,17 @@ class ProfileController extends Controller
         $profile = new Profile;
         $form = $request->all();
         
+        unset($form['_token']);
+        
         $profile->fill($form);
         $profile->save();
+        
+        return redirect('admin/profile/create');
     }
 
     public function edit(Request $request)
     {
-        // News Profileからデータを取得する
+        //Profile Modelからデータを取得する
         $profile = Profile::find($request->id);
         if (empty($profile)) {
             abort(404);
@@ -57,6 +61,6 @@ class ProfileController extends Controller
         $history->edited_at = Carbon::now();
         $history->save();
         
-        return redirect('admin/profile');
+        return redirect('admin/profile/edit');
     }
 }
