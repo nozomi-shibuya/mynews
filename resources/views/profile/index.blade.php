@@ -33,13 +33,7 @@
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
-                                <div class="title">
-                                    {{ Str::limit($post->title, 150) }}
-                                </div>
-                                <div class="body mt-3">
-                                    {{ Str::limit($post->body, 1500) }}
-                                </div>
-                            </div>
+　　                        </div>
                         </div>
                     </div>
                     <hr color="#c0c0c0">
