@@ -17,8 +17,13 @@ class NewsController extends Controller
         } else {
             $headline = null;
         }
-    //news/index.blade.php ファイルを渡している
-   // また View テンプレートに headline、 posts、という変数を渡している
-   return view('news.index', ['headline' => $headline, 'posts' => $posts]);
+        //news/index.blade.php ファイルを渡している
+       // また View テンプレートに headline、 posts、という変数を渡している
+       return view('news.index', ['headline' => $headline, 'posts' => $posts]);
+    }
+    
+    public function show(Request $request)
+    {
+        return view('news.detail');
     }
 }

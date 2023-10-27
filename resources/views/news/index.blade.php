@@ -22,6 +22,9 @@
                         <div class="col-md-6">
                             <p class="body mx-auto">{{ Str::limit($headline->body, 650) }}</p>
                         </div>
+                        <div>
+                            <a href="{{ route('news.show', ['id' => $headline->id]) }}">詳細</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,6 +44,9 @@
                                 </div>
                                 <div class="body mt-3">
                                     {{ Str::limit($post->body, 1500) }}
+                                </div>
+                                <div>
+                                    <a href="{{ route('news.show', ['id' => $post->id]) }}">詳細</a>
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">
