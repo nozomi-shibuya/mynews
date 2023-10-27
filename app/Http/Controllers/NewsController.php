@@ -24,6 +24,18 @@ class NewsController extends Controller
     
     public function show(Request $request)
     {
-        return view('news.detail');
+        $news = News::find($request->id);
+        if (empty($news)) {
+            abort(404);
+        }
+        return view('news.detail', ['news' => $news]);
+    }
+    
+    public function addComment(Request $request)
+    {
+        // コメントを登録する
+        
+        
+        return redirect('admin/news?='.$request->id);
     }
 }
