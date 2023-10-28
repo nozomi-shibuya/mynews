@@ -33,9 +33,18 @@ class NewsController extends Controller
     
     public function addComment(Request $request)
     {
+        // Validationを行う
+        $this->validate($request, News::$rules);
+        
+        $comment = new Comment;
+        $form = $request->all();
         // コメントを登録する
-        
-        
+        $comment = new Comment();
+        $comment->content = $request->input('content');
+        $comment->user_id = auth()->user()->id;
+        $comment->post_id = $postId;
+        $comment->save();
+
         return redirect('admin/news?='.$request->id);
     }
 }

@@ -19,17 +19,13 @@
                             {{ $news->body }}
                         </div>
                     </div>
-                    
                 </form>
-                <div class="row mt-5">
-                    <div class="col-md-4 mx-auto">
-                        <h2>コメント</h2>
-                        <ul class="list-group">
-                       
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+                
+                <form action="{{ route('news.show', $news->id) }}" method="post">
+                    @csrf
+                        <div class="form-group">
+                            <label for="content">コメント</label>
+                            <textarea class="form-control" id="content" name="content" rows="3" maxlength="255"></textarea>
+                        </div>
+                         <button type="submit" class="btn btn-primary">コメントする</button>
+                </form>
