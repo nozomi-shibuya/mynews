@@ -44,6 +44,6 @@ class NewsController extends Controller
         $comment->news_id = $request->news_id;
         $comment->save();
 
-        return redirect('news?='.$request->news_id);
+        return redirect('news?id='.$request->news_id);
     }
 }
