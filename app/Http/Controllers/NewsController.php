@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\News;
+use App\Models\Comment;
 
 class NewsController extends Controller
 {
@@ -34,17 +35,15 @@ class NewsController extends Controller
     public function addComment(Request $request)
     {
         // Validationを行う
-        $this->validate($request, News::$rules);
-        
-        $comment = new Comment;
+        // $this->validate($request, News::$rules);
+    
         $form = $request->all();
         // コメントを登録する
         $comment = new Comment();
-        $comment->content = $request->input('content');
-        $comment->user_id = auth()->user()->id;
-        $comment->post_id = $postId;
+        $comment->comment = $request->input('content');
+        $comment->news_id = $request->news_id;
         $comment->save();
 
-        return redirect('admin/news?='.$request->id);
+        return redirect('news?='.$request->news_id);
     }
 }
